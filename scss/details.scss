@@ -1,0 +1,451 @@
+/*-------------text responsive------------*/
+@media (max-width: 60rem) {
+  h1 {
+    &.text-small {
+      font-size: 4.18vw;
+    }
+  }
+}
+@media (max-width: 52.7rem) {
+  h2 {
+    &.text-small {
+      font-size: 3.8vw;
+    }
+  }
+}
+@media (max-width: 52rem) {
+  h3 {
+    &.text-small {
+      font-size: 3.35vw;
+    }
+  }
+}
+@media (max-width: 45rem) {
+  h4 {
+    &.text-small {
+      font-size: 3.34vw;
+    }
+  }
+}
+@media (max-width: 37.5rem) {
+  h5 {
+    &.text-small {
+      font-size: 3.33vw;
+    }
+  }
+}
+
+@media (max-width: 30rem) {
+  h1 {
+    &.text-small {
+      font-size: 1.25rem;
+    }
+  }
+  h2 {
+    &.text-small {
+      font-size: 1.125rem;
+    }
+  }
+  h3 {
+    &.text-small {
+      font-size: 1rem;
+    }
+  }
+  h4 {
+    &.text-small {
+      font-size: 1rem;
+    }
+  }
+  h5 {
+    &.text-small {
+      font-size: 1rem;
+    }
+  }
+}
+
+/*-------------border thickness-----------*/
+.border-0 {
+  border-width: 0 !important;
+}
+.border-1 {
+  border-width: 1px !important;
+}
+.border-2 {
+  border-width: 2px !important;
+}
+.border-3 {
+  border-width: 3px !important;
+}
+.border-4 {
+  border-width: 4px !important;
+}
+.border-5 {
+  border-width: 5px !important;
+}
+/*--------------link color--------------*/
+
+.link-primary {
+  color: #237bff;
+  &:focus,
+  :hover {
+    color: $primary;
+  }
+}
+
+.link-secondary {
+  color: $gray-600;
+  &:focus,
+  :hover {
+    color: $gray-700;
+  }
+}
+
+.link-success {
+  color: #198754;
+  &:focus,
+  :hover {
+    color: $success;
+  }
+}
+
+.link-info {
+  color: #0dcaf0;
+  &:focus,
+  :hover {
+    color: $info;
+  }
+}
+
+.link-warning {
+  color: #ffcd35;
+  &:focus,
+  :hover {
+    color: $warning;
+  }
+}
+
+.link-danger {
+  color: #df4e5c;
+  &:focus,
+  :hover {
+    color: $danger;
+  }
+}
+
+.link-light {
+  color: $gray-300;
+  &:focus,
+  :hover {
+    color: $white;
+  }
+}
+
+.link-dark {
+  color: $gray-900;
+  &:focus,
+  :hover {
+    color: $black;
+  }
+}
+
+/*---------scroll decor----------*/
+.scroll-decor {
+  /*mozilla*/
+  scrollbar-width: thin;
+  scrollbar-color: rgb(205, 205, 205) transparent;
+  /*the other browsers*/
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.25); /* color del scroll thumb */
+    border-radius: 10px;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.35);
+    }
+    &:active {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+/*---------big cursor----------*/
+body {
+  &.big-cursor {
+    cursor: url(../svg/cursor_d.svg), auto !important;
+  }
+}
+
+label,
+select,
+input[type="date"],
+input[type="radio"],
+input[type="checkbox"] {
+  body.big-cursor & {
+    cursor: url(../svg/cursor_d.svg), auto !important;
+  }
+}
+
+a,
+li,
+.btn,
+button {
+  body.big-cursor & {
+    cursor: url(../svg/cursor_pointer.svg), auto !important;
+  }
+}
+
+/*------------Dyslexic font------------*/
+@font-face {
+  font-family: OpenDyslexic;
+  src: url("../font/OpenDyslexic-Regular.otf");
+}
+body {
+  &.open-dyslexic {
+    font-family: OpenDyslexic;
+  }
+}
+.dyslexic-font {
+  font-family: OpenDyslexic;
+}
+
+/*-------------Aplicando gray scale-------------*/
+body {
+   &.grayscale {
+    filter: grayscale(100%);
+  }
+}
+
+/*-----------alineación vertical para el contenido de las etiquetas <th> y <td> -------------*/
+.middle-th tr th{
+  vertical-align: middle !important;
+}
+.middle-td tr td{
+  vertical-align: middle !important;
+}
+
+/*---------------------Botón intermitente (.flashing-button)-----------------*/
+.flashing-button {
+  position: relative;
+  &::after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    border-radius: 15%;
+    border: 6px solid #17a2b8;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s 22.5; /*ring= fotogramas, 1.5s = duracion de cada animacion, 22.5 veces que se repetirá la animación (colocar "infinite" si no quiere pare nunca)*/
+  }
+  @keyframes ring {
+    0% {
+      width: 40px;
+      height: 40px;
+      opacity: 1;
+    }
+    100% {
+      width: 125px;
+      height: 125px;
+      opacity: 0;
+    }
+  }
+  &:hover::after,
+  &:focus::after {
+    animation: none;
+    display: none;
+  }
+}
+
+/*------------Barra de navegación mas llamativa (.navbar-utm)-------------*/
+$yellow: rgb(248, 202, 37) !default;
+
+.navbar-utm {
+  & .navbar-brand {
+    color: $yellow;
+    &:hover,
+    &:focus {
+      color: $yellow;
+    }
+  }
+  & .navbar-nav {
+    & .show > .nav-link,
+    .active > .nav-link {
+      color: $yellow;
+    }
+    & .nav-link {
+      color: rgba(248, 202, 37, 0.8);
+      &:hover {
+        border-width: 3px 3px 0px 0px;
+        border-style: solid;
+        border-color: $yellow;
+        border-radius: 10px;
+        color: $yellow;
+      }
+      &:focus {
+        border-width: 2px 2px 0px 0px;
+      }
+      &.disabled {
+        color: rgba(248, 202, 37, 0.5);
+      }
+      &.show,
+      &.active {
+        color: $yellow;
+      }
+    }
+  }
+  & .navbar-toggler {
+    color: rgba(248, 202, 37, 0.7);
+    border-color: rgba(248, 202, 37, 0.3);
+  }
+  & .navbar-text {
+    color: rgba(248, 202, 37, 0.8);
+    & a {
+      color: $yellow;
+      &:hover,
+      &:focus {
+        color: $yellow;
+      }
+    }
+  }
+}
+
+$green: #006400 !default;
+
+/*Colores nuevos*/
+$mint: #80c490 !default;
+$mint2: #5cc274 !default;
+$mint3: #4bb163 !default;
+$mint-t: rgba(66, 151, 86, 0.5) !default;
+
+$pistachio: #a3c125 !default;
+$pistachio2: #96b908 !default;
+$pistachio3: #8daf07 !default;
+$pistachio-t: rgba(163, 193, 37, 0.5) !default;
+
+/*--------------Color de botón MedioAguamarina/menta(.btn-mint)-----------------*/
+
+.btn-mint {
+  color: $green;
+  background-color: $mint;
+  border-color: $mint;
+  &:hover {
+    color: $green;
+    background-color: $mint2;
+    border-color: $mint3;
+  }
+  &:focus,
+  &.focus {
+    color: $green;
+    background-color: $mint2;
+    border-color: $mint3;
+    -webkit-box-shadow: 0 0 0 0.2rem $mint-t;
+    box-shadow: 0 0 0 0.2rem $mint-t;
+  }
+  &.disabled,
+  &:disabled {
+    color: $green;
+    background-color: $mint;
+    border-color: $mint;
+  }
+  &:not(:disabled):not(.disabled) {
+    &:active,
+    &.active {
+      color: $green;
+      background-color: $mint3;
+      border-color: #429756;
+      &:focus {
+        -webkit-box-shadow: 0 0 0 0.2rem $mint-t;
+        box-shadow: 0 0 0 0.2rem $mint-t;
+      }
+    }
+  }
+  .show > &.dropdown-toggle {
+    color: $green;
+    background-color: $mint3;
+    border-color: #429756;
+    &:focus {
+      -webkit-box-shadow: 0 0 0 0.2rem $mint-t;
+      box-shadow: 0 0 0 0.2rem $mint-t;
+    }
+  }
+}
+
+/*-------------Color de botón YellowGreen/pistacho(.btn-pistachio)------------------- */
+
+.btn-pistachio {
+  color: $green;
+  background-color: $pistachio;
+  border-color: $pistachio;
+  &:hover {
+    color: $green;
+    background-color: $pistachio2;
+    border-color: $pistachio3;
+  }
+  &:focus,
+  &.focus {
+    color: $green;
+    background-color: $pistachio2;
+    border-color: $pistachio3;
+    -webkit-box-shadow: 0 0 0 0.2rem $pistachio-t;
+    box-shadow: 0 0 0 0.2rem $pistachio-t;
+  }
+  &.disabled,
+  &:disabled {
+    color: $green;
+    background-color: $pistachio;
+    border-color: $pistachio;
+  }
+  &:not(:disabled):not(.disabled) {
+    &:active,
+    &.active {
+      color: $green;
+      background-color: $pistachio3;
+      border-color: #7d9b09;
+      &:focus {
+        -webkit-box-shadow: 0 0 0 0.2rem $pistachio-t;
+        box-shadow: 0 0 0 0.2rem $pistachio-t;
+      }
+    }
+  }
+  .show > &.dropdown-toggle {
+    color: $green;
+    background-color: $pistachio3;
+    border-color: #7d9b09;
+    &:focus {
+      -webkit-box-shadow: 0 0 0 0.2rem $pistachio-t;
+      box-shadow: 0 0 0 0.2rem $pistachio-t;
+    }
+  }
+}
+
+/*--------------Color de espaciado MedioAguamarina/menta(.bg-min)-----------------*/
+
+.bg-mint {
+  background-color: $mint2 !important;
+}
+
+a.bg-mint,
+button.bg-mint {
+  &:hover,
+  &:focus {
+    background-color: $mint3 !important;
+  }
+}
+/*--------------Color de espaciado YellowGreen/pistacho(.bg-pistachio)------------------- */
+.bg-pistachio {
+  background-color: $pistachio !important;
+}
+
+a.bg-pistachio,
+button.bg-pistachio {
+  &:hover,
+  &:focus {
+    background-color: #768d1a !important;
+  }
+}
